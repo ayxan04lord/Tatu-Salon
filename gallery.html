@@ -1,165 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="az">
 <head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>Qalereya</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">	
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="css/responsive.css">
-<!-- fevicon -->
-<link rel="icon" href="images/fevicon.png" type="image/gif" />
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qalereya – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
 <body>
-	<!-- header section start -->
-	<div class="header_section">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">HAQQIMIZDA</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html">XİDMƏTLƏR</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="gallery.html">QALEREYA</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">ƏLAQƏ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">GİRİŞ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">QEYDİYYAT</a>
-                </li>
-              </ul>
-            </div>
-        </nav>
-	</div>
-	<!-- header section end -->
-  <!-- testimonial section start -->
-  <div class="testimonial_section layout_padding">
-    <div class="container">
-      <h1 class="testimonial_text">QALEREYA</h1>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px" alt="Logo"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item active"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<div style="background:linear-gradient(135deg,#1e242c,#2a3a5c);padding:60px 20px;text-align:center;">
+  <h1 style="color:#fff;font-size:42px;font-weight:700;margin-bottom:12px;">Qalereya</h1>
+  <p style="color:rgba(255,255,255,.65);font-size:16px;max-width:500px;margin:0 auto;">Ustalarımızın tamamladığı işlərdən seçmələr</p>
+</div>
+
+<!-- Gallery -->
+<div style="padding:60px 0; background:#f4f8fd;">
+  <div class="container">
+
+    <!-- Filter -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;">
+      <button class="price-filter-btn active" onclick="filterGallery('all',this)">Hamısı</button>
+      <button class="price-filter-btn" onclick="filterGallery('tattoo',this)">🖋 Döymə</button>
+      <button class="price-filter-btn" onclick="filterGallery('piercing',this)">💎 Pirsinq</button>
+    </div>
+    <style>
+      .price-filter-btn{padding:9px 24px;border:2px solid #e0e8f0;border-radius:24px;background:#fff;font-size:13px;font-weight:600;color:#888;cursor:pointer;transition:all .2s}
+      .price-filter-btn.active{border-color:#4f99e5;background:#4f99e5;color:#fff}
+      .price-filter-btn:hover:not(.active){border-color:#4f99e5;color:#4f99e5}
+    </style>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/unicorn.jpg.jpeg" alt="Unicorn Döymə">
+        <div class="gallery-overlay"><span>Unicorn Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/helix.jpg" alt="Helix Döymə">
+        <div class="gallery-overlay"><span>Helix Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/beyin_doymesi.jpg" alt="Beyin Döymə">
+        <div class="gallery-overlay"><span>Beyin Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/xalqdoyme.jpeg" alt="Şərq Döymə">
+        <div class="gallery-overlay"><span>Şərq Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="piercing">
+        <img src="images/pirsinq.jpg" alt="Pirsinq">
+        <div class="gallery-overlay"><span>Pirsinq</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/dntdoyme.jpg" alt="DNA Döymə">
+        <div class="gallery-overlay"><span>DNA Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/tatoo.jpg" alt="Tatu">
+        <div class="gallery-overlay"><span>Formalı Döymə</span></div>
+      </div>
+      <div class="gallery-item" data-cat="tattoo">
+        <img src="images/tatu2.jpg" alt="Tatu 2">
+        <div class="gallery-overlay"><span>Daimi Döymə</span></div>
+      </div>
+    </div>
+    <style>
+      .gallery-item { position:relative; border-radius:12px; overflow:hidden; cursor:pointer; }
+      .gallery-overlay { position:absolute; inset:0; background:rgba(30,36,44,.7); display:flex; align-items:flex-end; padding:16px; opacity:0; transition:opacity .3s; }
+      .gallery-item:hover .gallery-overlay { opacity:1; }
+      .gallery-overlay span { color:#fff; font-weight:600; font-size:14px; }
+    </style>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="service.html" class="btn-order" style="display:inline-block;font-size:14px;padding:12px 30px;">
+        <i class="fa fa-shopping-cart"></i> Sifariş ver
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section_footer">
+  <div class="container">
+    <div class="footer_section_2">
       <div class="row">
-        <div class="col-md-6">
-          <div class="image_2"><img src="images/unicorn.jpg.jpeg"></div>
+        <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
+          <h2 class="account_text">Haqqımızda</h2>
+          <p class="ipsum_text_2"><li><a href="about.html">Haqqımızda səhifəsi</a></li></p>
         </div>
-        <div class="col-md-6">
-          <div class="image_2"><img src="images/helix.jpg"></div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Bizimlə əlaqə</h2>
+          <div class="useful_link"><ul><li><a href="contact.html">Əlaqə formu</a></li></ul></div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="image_2"><br><br><br><br><img src="images/beyin_doymesi.jpg"></div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Məktub göndərin</h2>
+          <input type="email" class="email_text" placeholder="E-poçtunuz">
+          <button class="subscribr_bt">GÖNDƏR</button>
         </div>
-        <div class="col-md-6">
-          <div class="image_2"><img src="images/xalqdoyme.jpeg"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="image_2"><img src="images/pirsinq.jpg"></div>
-        </div>
-        <div class="col-md-6">
-          <div class="image_2"><br><br><img src="images/dntdoyme.jpg"></div>
-        </div>
-      </div>
-      </div>
-      <div class="see_main">
-        <div class="see_bt"><a href="#">İndi al</a></div>
       </div>
     </div>
   </div>
-  <!-- testimonial section end -->
-  <!-- footer section start -->
-  <div class="section_footer margin_top_0">
-      <div class="container"> 
-        <div class="footer_section_2">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
-              <h2 class="account_text">Haqqımızda</h2>
-              <p class="ipsum_text_2">
-                <li><a href="#">Bu linkə keçid edin</a></li>
-              </p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <h2 class="account_text">Bizimlə əlaqə</h2>
-              <div class="useful_link">
-                <ul>
-                  <li><a href="#">Bizimlə belə əlaqə saxlaya bilərsiniz</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <h2 class="account_text">Məktub göndərin</h2>
-              <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-              <button class="subscribr_bt">GÖNDƏR</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="social_icon">
-        <ul>
-          <li><a href="#"><img src="images/fb-icon.png"></a></li>
-          <li><a href="#"><img src="images/twitter-icon.png"></a></li>
-          <li><a href="#"><img src="images/linkdin-icon.png"></a></li>
-          <li><a href="#"><img src="images/instagram-icon.png"></a></li>
-        </ul>
-      </div>
-    </div>
+  <div class="social_icon">
+    <ul>
+      <li><a href="#"><img src="images/fb-icon.png" alt="Facebook"></a></li>
+      <li><a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+      <li><a href="#"><img src="images/linkdin-icon.png" alt="LinkedIn"></a></li>
+      <li><a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+    </ul>
   </div>
-  <!-- footer section end -->
-  <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript --> 
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-        });
-    </script>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.price-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#galleryGrid .gallery-item').forEach(item => {
+      item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+</script>
 </body>
 </html>
+

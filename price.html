@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qiymətlər – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item active"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Hero -->
+<div class="price-hero">
+  <h1>Qiymət Cədvəli</h1>
+  <p>Bütün xidmətlərimizin şəffaf qiymətləri. Hər döymə unikaldır — mürəkkəb dizaynlar üçün əlaqə saxlayın.</p>
+</div>
+
+<!-- Price Page -->
+<div class="price-page" style="padding-top:40px;">
+  <div class="container">
+
+    <!-- Filter Tabs -->
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:30px;">
+      <button class="price-filter-btn active" onclick="filterCategory('all', this)">Hamısı</button>
+      <button class="price-filter-btn" onclick="filterCategory('tattoo', this)">🖋 Döymə</button>
+      <button class="price-filter-btn" onclick="filterCategory('piercing', this)">💎 Pirsinq</button>
+      <button class="price-filter-btn" onclick="filterCategory('cosmetic', this)">💄 Kosmetik</button>
+    </div>
+    <style>
+      .price-filter-btn { padding:9px 24px; border:2px solid #e0e8f0; border-radius:24px; background:#fff; font-size:13px; font-weight:600; color:#888; cursor:pointer; transition:all .2s; }
+      .price-filter-btn.active { border-color:#4f99e5; background:#4f99e5; color:#fff; }
+      .price-filter-btn:hover:not(.active) { border-color:#4f99e5; color:#4f99e5; }
+    </style>
+
+    <div class="price-table-wrap">
+      <table class="price-table" id="priceTable">
+        <thead>
+          <tr>
+            <th>Xidmət</th>
+            <th>Kateqoriya</th>
+            <th>Müddət</th>
+            <th>Qiymət</th>
+            <th>Sifariş</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tattoo -->
+          <tr data-cat="tattoo">
+            <td><strong>Kiçik Döymə</strong><br><small style="color:#888">5–8 sm, sadə dizayn</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>30–60 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼25</strong></td>
+            <td><a href="payment.html?service=Ki%C3%A7ik+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Orta Döymə</strong><br><small style="color:#888">10–15 sm, orta mürəkkəblik</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>1–2 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼55</strong></td>
+            <td><a href="payment.html?service=Orta+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Böyük Döymə</strong><br><small style="color:#888">15+ sm, detallı dizayn</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>2–4 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼110</strong></td>
+            <td><a href="payment.html?service=B%C3%B6y%C3%BCk+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Helix Döymə</strong><br><small style="color:#888">Spiral &amp; zəncirvari naxışlar</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>1–2 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼40</strong></td>
+            <td><a href="payment.html?service=Helix+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Unicorn Döymə</strong><br><small style="color:#888">Rəngli fantaziya dizaynı</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>1.5–2.5 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼45</strong></td>
+            <td><a href="payment.html?service=Unicorn+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Şərq Döymə</strong><br><small style="color:#888">Ənənəvi şərq ornamentləri</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>2–3 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼60</strong></td>
+            <td><a href="payment.html?service=%C5%9E%C9%99rq+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Formalı Döymə</strong><br><small style="color:#888">Həndəsi &amp; simmetrik formalar</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>1–2 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼50</strong></td>
+            <td><a href="payment.html?service=Formal%C4%B1+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="tattoo">
+            <td><strong>Nostaljik Döymə</strong><br><small style="color:#888">Vintage &amp; retro üslub</small></td>
+            <td><span class="cat-label" style="background:#dbeafe;color:#1d4ed8;">🖋 Döymə</span></td>
+            <td>1–1.5 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼35</strong></td>
+            <td><a href="payment.html?service=Nostaljik+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <!-- Cosmetic -->
+          <tr data-cat="cosmetic">
+            <td><strong>Kosmetik Döymə</strong><br><small style="color:#888">Daimi makiyaj, qaş, dodaq xətti</small></td>
+            <td><span class="cat-label" style="background:#fce7f3;color:#9d174d;">💄 Kosmetik</span></td>
+            <td>1–2 saat</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼70</strong></td>
+            <td><a href="payment.html?service=Kosmetik+D%C3%B6ym%C9%99" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <!-- Piercing -->
+          <tr data-cat="piercing">
+            <td><strong>Burun Pirsinqi</strong><br><small style="color:#888">Burun qanadı və ya septum</small></td>
+            <td><span class="cat-label" style="background:#ede9fe;color:#5b21b6;">💎 Pirsinq</span></td>
+            <td>15–20 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼30</strong></td>
+            <td><a href="payment.html?service=Burun+Pirsinqi" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="piercing">
+            <td><strong>Dodaq Pirsinqi</strong><br><small style="color:#888">Yuxarı, aşağı və ya medusa</small></td>
+            <td><span class="cat-label" style="background:#ede9fe;color:#5b21b6;">💎 Pirsinq</span></td>
+            <td>15–20 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼35</strong></td>
+            <td><a href="payment.html?service=Dodaq+Pirsinqi" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="piercing">
+            <td><strong>Qaş Pirsinqi</strong><br><small style="color:#888">Klassik horizontal qaş</small></td>
+            <td><span class="cat-label" style="background:#ede9fe;color:#5b21b6;">💎 Pirsinq</span></td>
+            <td>15–20 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼35</strong></td>
+            <td><a href="payment.html?service=Qa%C5%9F+Pirsinqi" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="piercing">
+            <td><strong>Qulaq Pirsinqi</strong><br><small style="color:#888">Lobu, helix, tragus</small></td>
+            <td><span class="cat-label" style="background:#ede9fe;color:#5b21b6;">💎 Pirsinq</span></td>
+            <td>10–15 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼20</strong></td>
+            <td><a href="payment.html?service=Qulaq+Pirsinqi" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+          <tr data-cat="piercing">
+            <td><strong>Navel Pirsinqi</strong><br><small style="color:#888">Göbək pirsinqi</small></td>
+            <td><span class="cat-label" style="background:#ede9fe;color:#5b21b6;">💎 Pirsinq</span></td>
+            <td>15 dəq</td>
+            <td><strong style="color:#4f99e5;font-size:17px;">₼40</strong></td>
+            <td><a href="payment.html?service=Navel+Pirsinqi" class="btn-order" style="font-size:12px;padding:6px 14px;">Sifariş et</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Note -->
+    <div style="background:#f4f8fd; border-left:4px solid #4f99e5; border-radius:8px; padding:16px 20px; max-width:700px; margin: 0 auto 50px;">
+      <p style="margin:0; font-size:13px; color:#555; line-height:1.8;">
+        <i class="fa fa-info-circle" style="color:#4f99e5; margin-right:6px;"></i>
+        Qiymətlər döymənin ölçüsünə, mürəkkəbliyinə və yerləşmə bölgəsinə görə dəyişə bilər.
+        Fərdi layihələr üçün <a href="contact.html" style="color:#4f99e5;font-weight:600;">bizimlə əlaqə saxlayın</a>.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section_footer">
+  <div class="container">
+    <div class="footer_section_2">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
+          <h2 class="account_text">Haqqımızda</h2>
+          <p class="ipsum_text_2"><li><a href="about.html">Haqqımızda səhifəsi</a></li></p>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Bizimlə əlaqə</h2>
+          <div class="useful_link"><ul><li><a href="contact.html">Əlaqə formu</a></li></ul></div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Məktub göndərin</h2>
+          <input type="email" class="email_text" placeholder="E-poçtunuz">
+          <button class="subscribr_bt">GÖNDƏR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="social_icon">
+    <ul>
+      <li><a href="#"><img src="images/fb-icon.png"></a></li>
+      <li><a href="#"><img src="images/twitter-icon.png"></a></li>
+      <li><a href="#"><img src="images/linkdin-icon.png"></a></li>
+      <li><a href="#"><img src="images/instagram-icon.png"></a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  function filterCategory(cat, btn) {
+    document.querySelectorAll('.price-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#priceTable tbody tr').forEach(row => {
+      if (cat === 'all' || row.dataset.cat === cat) row.style.display = '';
+      else row.style.display = 'none';
+    });
+  }
+</script>
+</body>
+</html>
+

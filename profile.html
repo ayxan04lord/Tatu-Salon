@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Profile Content -->
+<div class="profile-page">
+  <div class="container">
+    <div class="row">
+
+      <!-- Left: Profile Card -->
+      <div class="col-lg-4 mb-4">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" id="avatarInitials"></div>
+            <h2 id="profileName">—</h2>
+            <p id="profileEmail">—</p>
+          </div>
+          <div class="profile-body">
+            <div class="profile-stats">
+              <div class="stat-box">
+                <div class="num" id="statOrders">0</div>
+                <div class="lbl">Sifariş</div>
+              </div>
+              <div class="stat-box">
+                <div class="num" id="statDone">0</div>
+                <div class="lbl">Tamamlanan</div>
+              </div>
+              <div class="stat-box">
+                <div class="num" id="statTotal">₼0</div>
+                <div class="lbl">Ümumi</div>
+              </div>
+            </div>
+
+            <!-- Edit Profile -->
+            <div class="section-divider" style="margin-top:0;">Profili redaktə et</div>
+            <div id="editAlert" class="alert-auth" style="display:none;"></div>
+            <form id="editForm">
+              <div class="form-group-auth">
+                <label class="form-label">Ad Soyad</label>
+                <input id="editName" type="text" class="form-input" placeholder="Adınız">
+              </div>
+              <div class="form-group-auth">
+                <label class="form-label">Yeni Şifrə (boş qoyun – dəyişməsin)</label>
+                <input id="editPassword" type="password" class="form-input" placeholder="Yeni şifrə">
+              </div>
+              <button type="submit" class="btn-primary-full" style="font-size:13px;padding:10px;">
+                <i class="fa fa-save"></i> Yadda saxla
+              </button>
+            </form>
+
+            <div style="margin-top:24px; text-align:center;">
+              <a href="service.html" class="btn-order" style="display:inline-block;margin-right:8px;">
+                <i class="fa fa-plus"></i> Yeni sifariş
+              </a>
+              <button onclick="Auth.logout()" class="btn-order" style="background:#e84545;">
+                <i class="fa fa-sign-out"></i> Çıxış
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Balance + Orders -->
+      <div class="col-lg-8">
+
+        <!-- Tatu Balans Card -->
+        <div class="profile-card mb-4" style="margin-bottom:24px;">
+          <div class="profile-body" style="padding:28px 32px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+
+              <!-- Balance display -->
+              <div style="display:flex;align-items:center;gap:18px;">
+                <div style="width:56px;height:56px;background:linear-gradient(135deg,#4f99e5,#2176d4);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">
+                  💳
+                </div>
+                <div>
+                  <div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:#999;font-weight:600;">Tatu Balans</div>
+                  <div id="profileBalanceAmt" style="font-size:32px;font-weight:700;color:#4f99e5;line-height:1.2;">₼0.00</div>
+                  <div style="font-size:12px;color:#aaa;margin-top:2px;">Xidmətlər üçün istifadə edə bilərsiniz</div>
+                </div>
+              </div>
+
+              <!-- Top-up button -->
+              <button onclick="openTopup()" style="display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#4f99e5,#2176d4);border:none;border-radius:12px;color:#fff;padding:12px 22px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s;white-space:nowrap;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                <i class="fa fa-plus-circle" style="font-size:16px;"></i> Balans Yüklə
+              </button>
+            </div>
+
+            <!-- Quick stats row -->
+            <div style="display:flex;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid #e0e8f0;flex-wrap:wrap;">
+              <div style="flex:1;min-width:100px;background:#f4f8fd;border-radius:10px;padding:12px 16px;text-align:center;">
+                <div style="font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.6px;">Ümumi yüklənən</div>
+                <div id="statTopupTotal" style="font-size:18px;font-weight:700;color:#2bc48a;">₼0.00</div>
+              </div>
+              <div style="flex:1;min-width:100px;background:#f4f8fd;border-radius:10px;padding:12px 16px;text-align:center;">
+                <div style="font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.6px;">Xərclənən</div>
+                <div id="statSpent" style="font-size:18px;font-weight:700;color:#f97316;">₼0.00</div>
+              </div>
+              <div style="flex:1;min-width:100px;background:#f4f8fd;border-radius:10px;padding:12px 16px;text-align:center;">
+                <div style="font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.6px;">Sifariş sayı</div>
+                <div id="statOrdersB" style="font-size:18px;font-weight:700;color:#4f99e5;">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-body">
+            <div class="section-divider" style="margin-top:0;">Sifariş tarixi</div>
+            <div id="ordersContainer">
+              <p style="color:#aaa;text-align:center;padding:30px 0;"><i class="fa fa-inbox" style="font-size:36px;display:block;margin-bottom:10px;"></i>Hələ heç bir sifariş yoxdur.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section_footer">
+  <div class="container">
+    <div class="footer_section_2">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
+          <h2 class="account_text">Haqqımızda</h2>
+          <p class="ipsum_text_2"><li><a href="about.html">Haqqımızda səhifəsi</a></li></p>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Bizimlə əlaqə</h2>
+          <div class="useful_link"><ul><li><a href="contact.html">Əlaqə formu</a></li></ul></div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Məktub göndərin</h2>
+          <input type="email" class="email_text" placeholder="E-poçtunuz">
+          <button class="subscribr_bt">GÖNDƏR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="social_icon">
+    <ul>
+      <li><a href="#"><img src="images/fb-icon.png"></a></li>
+      <li><a href="#"><img src="images/twitter-icon.png"></a></li>
+      <li><a href="#"><img src="images/linkdin-icon.png"></a></li>
+      <li><a href="#"><img src="images/instagram-icon.png"></a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  const user = Auth.getCurrentUser();
+  if (!user) { window.location.href = 'login.html'; }
+
+  function renderProfile() {
+    const u = Auth.getCurrentUser();
+    document.getElementById('profileName').textContent    = u.name;
+    document.getElementById('profileEmail').textContent   = u.email;
+    document.getElementById('editName').value             = u.name;
+    const initials = u.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2);
+    document.getElementById('avatarInitials').textContent = initials;
+
+    // Balance
+    const bal = (u.balance || 0).toFixed(2);
+    document.getElementById('profileBalanceAmt').textContent = '₼' + bal;
+
+    const orders  = u.orders || [];
+    const done    = orders.filter(o => o.status === 'Tamamlandı').length;
+    const spent   = orders.reduce((s, o) => s + (parseFloat(o.price) || 0), 0);
+    // topup total = balance + spent (rough)
+    const topupTotal = (parseFloat(bal) + spent).toFixed(2);
+
+    document.getElementById('statOrders').textContent   = orders.length;
+    document.getElementById('statDone').textContent     = done;
+    document.getElementById('statTotal').textContent    = '₼' + spent.toFixed(2);
+    document.getElementById('statTopupTotal').textContent = '₼' + topupTotal;
+    document.getElementById('statSpent').textContent    = '₼' + spent.toFixed(2);
+    document.getElementById('statOrdersB').textContent  = orders.length;
+
+    const cont = document.getElementById('ordersContainer');
+    if (!orders.length) {
+      cont.innerHTML = `<p style="color:#aaa;text-align:center;padding:30px 0;">
+        <i class="fa fa-inbox" style="font-size:36px;display:block;margin-bottom:10px;"></i>
+        Hələ heç bir sifariş yoxdur.</p>`;
+      return;
+    }
+
+    const rows = orders.slice().reverse().map(o => {
+      const sc = o.status === 'Tamamlandı' ? 'badge-done'
+               : o.status === 'Ləğv edildi' ? 'badge-cancelled'
+               : 'badge-waiting';
+      return `<tr>
+        <td>${o.id}</td>
+        <td>${o.service}</td>
+        <td>₼${parseFloat(o.price).toFixed(2)}</td>
+        <td>${o.date}</td>
+        <td><span class="badge-status ${sc}">${o.status}</span></td>
+      </tr>`;
+    }).join('');
+
+    cont.innerHTML = `<div style="overflow-x:auto;">
+      <table class="orders-table">
+        <thead><tr><th>№</th><th>Xidmət</th><th>Məbləğ</th><th>Tarix</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>`;
+  }
+
+  renderProfile();
+
+  // Edit form
+  document.getElementById('editForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('editName').value.trim();
+    const pwd  = document.getElementById('editPassword').value;
+    const alert = document.getElementById('editAlert');
+
+    if (!name) {
+      alert.textContent = 'Ad sahəsi boş ola bilməz.';
+      alert.className = 'alert-auth alert-error';
+      alert.style.display = 'block';
+      return;
+    }
+    const fields = { name };
+    if (pwd) {
+      if (pwd.length < 6) {
+        alert.textContent = 'Şifrə ən az 6 simvol olmalıdır.';
+        alert.className = 'alert-auth alert-error';
+        alert.style.display = 'block';
+        return;
+      }
+      fields.password = pwd;
+    }
+    Auth.updateProfile(fields);
+    alert.textContent = 'Profil uğurla yeniləndi!';
+    alert.className = 'alert-auth alert-success';
+    alert.style.display = 'block';
+    document.getElementById('editPassword').value = '';
+    renderProfile();
+    setTimeout(() => { alert.style.display = 'none'; }, 3000);
+  });
+</script>
+</body>
+</html>
+

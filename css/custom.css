@@ -1,0 +1,346 @@
+/* =============================================================
+   custom.css  –  Modern overrides & new page styles
+   ============================================================= */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --blue:    #4f99e5;
+  --dark:    #1e242c;
+  --darker:  #141820;
+  --light-bg:#f4f8fd;
+  --white:   #ffffff;
+  --red:     #e84545;
+  --success: #2bc48a;
+  --border:  #e0e8f0;
+  --text:    #4a4a4a;
+  --shadow:  0 4px 24px rgba(0,0,0,.10);
+}
+
+/* ---------- Global Reset overrides ---------- */
+body { font-family: 'Poppins', sans-serif; color: var(--text); }
+
+/* ---------- Navbar ---------- */
+.header_section .navbar {
+  padding: 0 40px;
+  border-top: 4px solid var(--blue);
+  background: var(--darker) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,.45);
+}
+
+.header_section .logo img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #cdd8e8 !important;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .6px;
+  padding: 22px 14px !important;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--blue) !important;
+}
+
+.nav-profile-link { font-weight: 600 !important; color: var(--blue) !important; }
+
+/* ---------- Hero / Banner ---------- */
+.banner_section { background-attachment: fixed; }
+.controller_text { font-size: 62px; }
+
+/* ---------- Section Headings ---------- */
+.section-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.section-title span { color: var(--blue); }
+.section-subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+/* ---------- Service Cards ---------- */
+.services-grid { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; padding: 20px 0 50px; }
+
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  width: 300px;
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(79,153,229,.20); }
+
+.service-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.service-card-body { padding: 20px; }
+
+.service-card-badge {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 3px 12px;
+  margin-bottom: 10px;
+}
+
+.service-card-badge.piercing  { background: #a855f7; }
+.service-card-badge.permanent { background: #f97316; }
+.service-card-badge.cosmetic  { background: #ec4899; }
+
+.service-card h3 { font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+.service-card p  { font-size: 13px; color: #777; line-height: 1.6; }
+
+.service-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--light-bg);
+}
+
+.service-price { font-size: 20px; font-weight: 700; color: var(--blue); }
+.service-price span { font-size: 12px; font-weight: 400; color: #999; }
+
+.btn-order {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 7px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.btn-order:hover { background: #2176d4; color: #fff; transform: scale(1.04); }
+
+/* ---------- Auth Pages ---------- */
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--darker) 0%, #2a3347 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  animation: fadeUp .5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.auth-logo img { width: 70px; height: 70px; border-radius: 12px; object-fit: cover; }
+.auth-logo h2 { font-size: 22px; font-weight: 700; color: var(--dark); margin-top: 12px; }
+.auth-logo p  { font-size: 13px; color: #888; margin: 0; }
+
+.form-label { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; display: block; }
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border .2s, box-shadow .2s;
+  color: var(--text);
+}
+.form-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(79,153,229,.15); }
+
+.form-group-auth { margin-bottom: 18px; }
+
+.btn-primary-full {
+  width: 100%;
+  padding: 13px;
+  background: var(--blue);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  margin-top: 6px;
+}
+.btn-primary-full:hover { background: #2176d4; transform: translateY(-1px); }
+
+.auth-switch { text-align: center; font-size: 13px; margin-top: 20px; color: #888; }
+.auth-switch a { color: var(--blue); font-weight: 600; }
+
+.alert-auth {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: none;
+}
+.alert-error   { background: #fef0f0; color: #c53030; border: 1px solid #f5c6c6; }
+.alert-success { background: #f0fef5; color: #1a7a46; border: 1px solid #b3e8cc; }
+
+/* ---------- Profile Page ---------- */
+.profile-page { background: var(--light-bg); min-height: 100vh; padding: 60px 0; }
+
+.profile-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, var(--dark), #2a3a5c);
+  padding: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.profile-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; font-weight: 700; color: #fff;
+  margin: 0 auto 16px;
+  border: 4px solid rgba(255,255,255,.3);
+}
+
+.profile-header h2 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.profile-header p  { font-size: 14px; color: rgba(255,255,255,.65); margin: 0; }
+
+.profile-body { padding: 32px; }
+
+.profile-stats {
+  display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;
+}
+.stat-box {
+  flex: 1; min-width: 110px;
+  background: var(--light-bg);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+.stat-box .num { font-size: 26px; font-weight: 700; color: var(--blue); }
+.stat-box .lbl { font-size: 12px; color: #888; }
+
+.orders-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.orders-table th {
+  background: var(--dark); color: #fff;
+  padding: 12px 16px; text-align: left; font-weight: 600;
+}
+.orders-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+.orders-table tr:hover td { background: var(--light-bg); }
+
+.badge-status {
+  display: inline-block; padding: 3px 12px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.badge-waiting  { background: #fff3cd; color: #856404; }
+.badge-done     { background: #d1f5e2; color: #0a6640; }
+.badge-cancelled{ background: #fde8e8; color: #9b1c1c; }
+
+/* ---------- Payment Page ---------- */
+.payment-page { background: var(--light-bg); min-height: 100vh; padding: 60px 0; }
+
+.payment-wrapper { display: flex; gap: 30px; flex-wrap: wrap; }
+
+.payment-form-card, .payment-summary-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+.payment-form-card { flex: 2; min-width: 300px; }
+.payment-summary-card { flex: 1; min-width: 260px; }
+
+.payment-summary-card h3 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.summary-row:last-child { border: none; font-weight: 700; font-size: 16px; color: var(--blue); }
+
+.card-icons { display: flex; gap: 10px; margin-bottom: 16px; }
+.card-icon { width: 48px; height: 30px; border-radius: 5px; background: var(--light-bg); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
+.input-row { display: flex; gap: 14px; }
+.input-row .form-group-auth { flex: 1; }
+
+.section-divider { font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 1px; margin: 22px 0 16px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+
+/* ---------- Price Page ---------- */
+.price-page { padding: 70px 0; background: var(--white); }
+.price-hero { text-align: center; background: linear-gradient(135deg, var(--darker), #2a3a5c); padding: 70px 20px; color: #fff; }
+.price-hero h1 { font-size: 46px; font-weight: 700; color: #fff; }
+.price-hero p  { color: rgba(255,255,255,.7); font-size: 16px; max-width: 540px; margin: 0 auto; }
+
+.price-table-wrap { overflow-x: auto; margin: 50px auto; max-width: 900px; padding: 0 16px; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+.price-table thead tr { background: var(--dark); color: #fff; }
+.price-table th { padding: 16px 20px; font-weight: 600; text-align: left; }
+.price-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); }
+.price-table tr:last-child td { border: none; }
+.price-table tr:hover td { background: var(--light-bg); }
+.cat-label { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+
+/* ---------- Gallery ---------- */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 16px; }
+.gallery-item { border-radius: 12px; overflow: hidden; position: relative; }
+.gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform .4s; }
+.gallery-item:hover img { transform: scale(1.07); }
+
+/* ---------- Footer overrides ---------- */
+.section_footer { background: var(--darker); }
+.account_text   { color: var(--blue) !important; font-size: 18px !important; font-weight: 600 !important; }
+.ipsum_text_2 a, .useful_link li a { color: #aab4c4 !important; font-size: 14px; }
+.ipsum_text_2 a:hover, .useful_link li a:hover { color: var(--blue) !important; }
+.subscribr_bt { border-radius: 6px; font-size: 13px !important; }
+
+/* push auth items to far right in navbar — handled via inline style on element */
+
+@media (max-width: 768px) {
+  .controller_text { font-size: 38px; }
+  .auth-card { padding: 32px 22px; }
+  .profile-stats { gap: 10px; }
+  .payment-wrapper { flex-direction: column; }
+  .services-grid { gap: 16px; }
+  .service-card { width: 100%; max-width: 380px; }
+}

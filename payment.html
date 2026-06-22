@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ödəniş – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Payment Content -->
+<div class="payment-page">
+  <div class="container">
+    <h2 class="section-title" style="text-align:left;margin-bottom:30px;">
+      <i class="fa fa-credit-card" style="color:#4f99e5;margin-right:10px;"></i>Ödəniş
+    </h2>
+
+    <div id="authGate" style="display:none; background:#fff3cd; border:1px solid #ffd900; border-radius:12px; padding:24px; text-align:center; margin-bottom:30px;">
+      <i class="fa fa-lock" style="font-size:32px; color:#856404; margin-bottom:10px; display:block;"></i>
+      <p style="color:#856404; font-weight:600; margin-bottom:14px;">Ödəniş etmək üçün hesabınıza daxil olmalısınız.</p>
+      <a href="login.html" class="btn-order" style="margin-right:10px;">Daxil ol</a>
+      <a href="register.html" class="btn-order" style="background:#2bc48a;">Qeydiyyat</a>
+    </div>
+
+    <div id="paymentContent" class="payment-wrapper">
+
+      <!-- Payment Form -->
+      <div class="payment-form-card">
+        <div id="payAlert" class="alert-auth" style="display:none;"></div>
+
+        <div class="section-divider" style="margin-top:0;">Xidmət seçimi</div>
+
+        <div class="form-group-auth">
+          <label class="form-label">Xidmət növü</label>
+          <select id="serviceSelect" class="form-input" onchange="updateSummary()">
+            <optgroup label="🖋 Döymə">
+              <option value="Kiçik Döymə|25">Kiçik Döymə – ₼25</option>
+              <option value="Orta Döymə|55">Orta Döymə – ₼55</option>
+              <option value="Böyük Döymə|110">Böyük Döymə – ₼110</option>
+              <option value="Helix Döymə|40">Helix Döymə – ₼40</option>
+              <option value="Unicorn Döymə|45">Unicorn Döymə – ₼45</option>
+              <option value="Şərq Döymə|60">Şərq Döymə – ₼60</option>
+              <option value="Formalı Döymə|50">Formalı Döymə – ₼50</option>
+              <option value="Nostaljik Döymə|35">Nostaljik Döymə – ₼35</option>
+              <option value="Kosmetik Döymə|70">Kosmetik Döymə – ₼70</option>
+            </optgroup>
+            <optgroup label="💎 Pirsinq">
+              <option value="Burun Pirsinqi|30">Burun Pirsinqi – ₼30</option>
+              <option value="Dodaq Pirsinqi|35">Dodaq Pirsinqi – ₼35</option>
+              <option value="Qaş Pirsinqi|35">Qaş Pirsinqi – ₼35</option>
+              <option value="Qulaq Pirsinqi|20">Qulaq Pirsinqi – ₼20</option>
+              <option value="Navel Pirsinqi|40">Navel Pirsinqi – ₼40</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-group-auth">
+          <label class="form-label">Görüş tarixi</label>
+          <input id="appointDate" type="date" class="form-input">
+        </div>
+
+        <div class="form-group-auth">
+          <label class="form-label">Qeyd (istəyə görə)</label>
+          <textarea id="notes" class="form-input" rows="3" placeholder="Əlavə istəkləriniz..." style="height:auto;"></textarea>
+        </div>
+
+        <div class="section-divider">Ödəniş üsulu</div>
+
+        <!-- Payment Method Tabs -->
+        <div style="display:flex; gap:10px; margin-bottom:20px;">
+          <button class="pay-tab active" data-tab="card" onclick="switchTab('card', this)">
+            <i class="fa fa-credit-card"></i> Kart
+          </button>
+          <button class="pay-tab" data-tab="cash" onclick="switchTab('cash', this)">
+            <i class="fa fa-money"></i> Nağd
+          </button>
+        </div>
+        <style>
+          .pay-tab { flex:1; padding:10px; border:2px solid #e0e8f0; border-radius:10px; background:#fff; cursor:pointer; font-size:13px; font-weight:600; color:#888; transition:all .2s; }
+          .pay-tab.active { border-color:#4f99e5; background:#eef5ff; color:#4f99e5; }
+        </style>
+
+        <!-- Card Tab -->
+        <div id="tab-card">
+          <div class="card-icons">
+            <div class="card-icon">💳</div>
+            <div class="card-icon">🏦</div>
+          </div>
+          <div class="form-group-auth">
+            <label class="form-label">Kart üzərindəki ad</label>
+            <input id="cardName" type="text" class="form-input" placeholder="AD SOYAD">
+          </div>
+          <div class="form-group-auth">
+            <label class="form-label">Kart nömrəsi</label>
+            <input id="cardNumber" type="text" class="form-input" placeholder="0000 0000 0000 0000" maxlength="19">
+          </div>
+          <div class="input-row">
+            <div class="form-group-auth">
+              <label class="form-label">Son istifadə tarixi</label>
+              <input id="cardExpiry" type="text" class="form-input" placeholder="AA/İİ" maxlength="5">
+            </div>
+            <div class="form-group-auth">
+              <label class="form-label">CVV</label>
+              <input id="cardCvv" type="password" class="form-input" placeholder="•••" maxlength="3">
+            </div>
+          </div>
+        </div>
+
+        <!-- Cash Tab -->
+        <div id="tab-cash" style="display:none;">
+          <div style="background:#f0fef5; border:1px solid #b3e8cc; border-radius:12px; padding:20px; text-align:center;">
+            <i class="fa fa-map-marker" style="font-size:28px; color:#2bc48a; display:block; margin-bottom:10px;"></i>
+            <p style="color:#1a7a46; font-weight:600; margin-bottom:6px;">Nağd ödəniş seçdiniz</p>
+            <p style="color:#555; font-size:13px; margin:0;">Görüş zamanı salonumuzda ödəniş edə bilərsiniz.<br>Ünvan: Bakı, Neftçilər pr. 12</p>
+          </div>
+        </div>
+
+        <button class="btn-primary-full" id="submitPayBtn" onclick="submitPayment()">
+          <i class="fa fa-lock"></i> Sifarişi tamamla
+        </button>
+      </div>
+
+      <!-- Summary -->
+      <div class="payment-summary-card">
+        <h3><i class="fa fa-list-alt" style="color:#4f99e5;margin-right:8px;"></i>Sifariş xülasəsi</h3>
+        <div class="summary-row"><span>Xidmət:</span><span id="sumService">—</span></div>
+        <div class="summary-row"><span>Görüş tarixi:</span><span id="sumDate">—</span></div>
+        <div class="summary-row"><span>Xidmət məbləği:</span><span id="sumPrice">₼0</span></div>
+        <div class="summary-row"><span>Endirim:</span><span style="color:#2bc48a;">₼0</span></div>
+        <div class="summary-row"><span>Cəmi:</span><span id="sumTotal">₼0</span></div>
+
+        <div style="margin-top:24px; background:#f4f8fd; border-radius:12px; padding:16px;">
+          <p style="font-size:12px; color:#888; margin:0; line-height:1.7;">
+            <i class="fa fa-shield" style="color:#4f99e5;margin-right:6px;"></i>
+            Ödənişiniz SSL şifrələməsi ilə qorunur.<br>
+            <i class="fa fa-clock-o" style="color:#4f99e5;margin-right:6px;margin-top:6px;display:inline-block;"></i>
+            Görüşü ən az 24 saat əvvəl ləğv edə bilərsiniz.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:20px; padding:50px 40px; text-align:center; max-width:420px; width:90%; animation:fadeUp .4s ease;">
+    <div style="width:80px;height:80px;background:#f0fef5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;">✅</div>
+    <h2 style="font-size:22px;font-weight:700;color:#1e242c;margin-bottom:10px;">Sifariş qəbul edildi!</h2>
+    <p id="successMsg" style="color:#666;font-size:14px;margin-bottom:24px;"></p>
+    <a href="profile.html" class="btn-order" style="display:inline-block;">Profili görüntülə</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section_footer">
+  <div class="container">
+    <div class="footer_section_2">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
+          <h2 class="account_text">Haqqımızda</h2>
+          <p class="ipsum_text_2"><li><a href="about.html">Haqqımızda səhifəsi</a></li></p>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Bizimlə əlaqə</h2>
+          <div class="useful_link"><ul><li><a href="contact.html">Əlaqə formu</a></li></ul></div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Məktub göndərin</h2>
+          <input type="email" class="email_text" placeholder="E-poçtunuz">
+          <button class="subscribr_bt">GÖNDƏR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="social_icon">
+    <ul>
+      <li><a href="#"><img src="images/fb-icon.png"></a></li>
+      <li><a href="#"><img src="images/twitter-icon.png"></a></li>
+      <li><a href="#"><img src="images/linkdin-icon.png"></a></li>
+      <li><a href="#"><img src="images/instagram-icon.png"></a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Set minimum appointment date to tomorrow
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+  document.getElementById('appointDate').min = tomorrow.toISOString().split('T')[0];
+
+  // Auth gate
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!Auth.getCurrentUser()) {
+      document.getElementById('authGate').style.display = 'block';
+      document.getElementById('paymentContent').style.display = 'none';
+    }
+    updateSummary();
+
+    // Pre-select service from URL param
+    const params = new URLSearchParams(window.location.search);
+    const svc = params.get('service');
+    if (svc) {
+      const sel = document.getElementById('serviceSelect');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.startsWith(decodeURIComponent(svc))) {
+          sel.selectedIndex = i; break;
+        }
+      }
+      updateSummary();
+    }
+  });
+
+  // Tab switch
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.pay-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-card').style.display = tab === 'card' ? 'block' : 'none';
+    document.getElementById('tab-cash').style.display = tab === 'cash' ? 'block' : 'none';
+  }
+
+  // Update summary panel
+  function updateSummary() {
+    const sel   = document.getElementById('serviceSelect');
+    const parts = sel.value.split('|');
+    const name  = parts[0]; const price = parseFloat(parts[1]);
+    const date  = document.getElementById('appointDate').value;
+    document.getElementById('sumService').textContent = name;
+    document.getElementById('sumDate').textContent    = date ? new Date(date).toLocaleDateString('az-AZ') : '—';
+    document.getElementById('sumPrice').textContent   = '₼' + price.toFixed(2);
+    document.getElementById('sumTotal').textContent   = '₼' + price.toFixed(2);
+  }
+
+  // Card formatting
+  document.getElementById('cardNumber').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g,'').substring(0,16);
+    this.value = v.replace(/(.{4})/g,'$1 ').trim();
+  });
+  document.getElementById('cardExpiry').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g,'');
+    if (v.length >= 2) v = v.substring(0,2) + '/' + v.substring(2,4);
+    this.value = v;
+  });
+
+  function submitPayment() {
+    const user = Auth.getCurrentUser();
+    if (!user) { window.location.href = 'login.html'; return; }
+
+    const alertEl = document.getElementById('payAlert');
+    const showErr = msg => { alertEl.textContent = msg; alertEl.className = 'alert-auth alert-error'; alertEl.style.display = 'block'; alertEl.scrollIntoView({behavior:'smooth'}); };
+
+    const activeTab = document.querySelector('.pay-tab.active').dataset.tab;
+    const parts = document.getElementById('serviceSelect').value.split('|');
+    const service = parts[0]; const price = parseFloat(parts[1]);
+    const date = document.getElementById('appointDate').value;
+
+    if (!date) return showErr('Zəhmət olmasa görüş tarixini seçin.');
+
+    if (activeTab === 'card') {
+      const cardName   = document.getElementById('cardName').value.trim();
+      const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g,'');
+      const cardExpiry = document.getElementById('cardExpiry').value;
+      const cardCvv    = document.getElementById('cardCvv').value;
+      if (!cardName)                return showErr('Kart üzərindəki adı daxil edin.');
+      if (cardNumber.length !== 16) return showErr('Kart nömrəsi 16 rəqəm olmalıdır.');
+      if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) return showErr('Düzgün son istifadə tarixi daxil edin (AA/İİ).');
+      if (cardCvv.length !== 3)     return showErr('CVV 3 rəqəm olmalıdır.');
+    }
+
+    alertEl.style.display = 'none';
+
+    // Save order
+    Auth.saveOrder({ userId: user.id, service, price, payMethod: activeTab });
+
+    const modal = document.getElementById('successModal');
+    document.getElementById('successMsg').textContent =
+      `${service} xidməti üçün sifarişiniz qəbul edildi. Görüş tarixi: ${new Date(date).toLocaleDateString('az-AZ')}. Ödəniş: ₼${price.toFixed(2)}`;
+    modal.style.display = 'flex';
+  }
+
+  document.getElementById('appointDate').addEventListener('change', updateSummary);
+  document.getElementById('serviceSelect').addEventListener('change', updateSummary);
+</script>
+</body>
+</html>
+

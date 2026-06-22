@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giriş – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Login Form -->
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <img src="images/logo.jpg" alt="Logo">
+      <h2>Xoş gəlmisiniz!</h2>
+      <p>Hesabınıza daxil olun</p>
+    </div>
+
+    <div id="alertBox" class="alert-auth alert-error"></div>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group-auth">
+        <label class="form-label" for="email">E-poçt ünvanı</label>
+        <input id="email" type="email" class="form-input" placeholder="ornek@mail.com" required>
+      </div>
+      <div class="form-group-auth">
+        <label class="form-label" for="password">Şifrə</label>
+        <div style="position:relative;">
+          <input id="password" type="password" class="form-input" placeholder="••••••••" required style="padding-right:42px;">
+          <span id="togglePwd" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;color:#aaa;">
+            <i class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary-full">
+        <i class="fa fa-sign-in"></i> Daxil ol
+      </button>
+    </form>
+
+    <div class="auth-switch">
+      Hesabınız yoxdur? <a href="register.html">Qeydiyyatdan keçin</a>
+    </div>
+    <div class="auth-switch" style="margin-top:10px;">
+      <a href="index.html"><i class="fa fa-arrow-left"></i> Əsas səhifəyə qayıt</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Redirect if already logged in
+  if (Auth.getCurrentUser()) window.location.href = 'profile.html';
+
+  // Toggle password visibility
+  document.getElementById('togglePwd').addEventListener('click', function () {
+    const inp = document.getElementById('password');
+    const icon = this.querySelector('i');
+    if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fa fa-eye-slash'; }
+    else                         { inp.type = 'password'; icon.className = 'fa fa-eye'; }
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email    = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const alertBox = document.getElementById('alertBox');
+
+    if (!email || !password) {
+      alertBox.textContent = 'Zəhmət olmasa bütün sahələri doldurun.';
+      alertBox.className = 'alert-auth alert-error';
+      alertBox.style.display = 'block';
+      return;
+    }
+
+    const result = Auth.login(email, password);
+    if (result.ok) {
+      alertBox.textContent = 'Uğurla daxil oldunuz! Yönləndirilirsiniz...';
+      alertBox.className = 'alert-auth alert-success';
+      alertBox.style.display = 'block';
+      setTimeout(() => { window.location.href = 'profile.html'; }, 900);
+    } else {
+      alertBox.textContent = result.msg;
+      alertBox.className = 'alert-auth alert-error';
+      alertBox.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
+

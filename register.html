@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qeydiyyat – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Register Form -->
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <img src="images/logo.jpg" alt="Logo">
+      <h2>Qeydiyyat</h2>
+      <p>Yeni hesab yaradın</p>
+    </div>
+
+    <div id="alertBox" class="alert-auth alert-error"></div>
+
+    <form id="registerForm" novalidate>
+      <div class="form-group-auth">
+        <label class="form-label" for="name">Ad Soyad</label>
+        <input id="name" type="text" class="form-input" placeholder="Adınız və soyadınız" required>
+      </div>
+      <div class="form-group-auth">
+        <label class="form-label" for="email">E-poçt ünvanı</label>
+        <input id="email" type="email" class="form-input" placeholder="ornek@mail.com" required>
+      </div>
+      <div class="form-group-auth">
+        <label class="form-label" for="password">Şifrə</label>
+        <div style="position:relative;">
+          <input id="password" type="password" class="form-input" placeholder="Ən az 6 simvol" required style="padding-right:42px;">
+          <span id="togglePwd" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;color:#aaa;">
+            <i class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+      <div class="form-group-auth">
+        <label class="form-label" for="password2">Şifrəni təkrarlayın</label>
+        <input id="password2" type="password" class="form-input" placeholder="Şifrəni yenidən daxil edin" required>
+      </div>
+
+      <!-- Password strength bar -->
+      <div style="margin-bottom:16px;">
+        <div style="height:5px;background:#eee;border-radius:4px;overflow:hidden;">
+          <div id="strengthBar" style="height:100%;width:0%;background:#e84545;transition:all .3s;"></div>
+        </div>
+        <p id="strengthLabel" style="font-size:11px;color:#888;margin:4px 0 0;"></p>
+      </div>
+
+      <button type="submit" class="btn-primary-full">
+        <i class="fa fa-user-plus"></i> Qeydiyyatdan keç
+      </button>
+    </form>
+
+    <div class="auth-switch">
+      Artıq hesabınız var? <a href="login.html">Daxil olun</a>
+    </div>
+    <div class="auth-switch" style="margin-top:10px;">
+      <a href="index.html"><i class="fa fa-arrow-left"></i> Əsas səhifəyə qayıt</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  // Redirect if already logged in
+  if (Auth.getCurrentUser()) window.location.href = 'profile.html';
+
+  // Toggle password
+  document.getElementById('togglePwd').addEventListener('click', function () {
+    const inp = document.getElementById('password');
+    const icon = this.querySelector('i');
+    if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fa fa-eye-slash'; }
+    else                         { inp.type = 'password'; icon.className = 'fa fa-eye'; }
+  });
+
+  // Password strength
+  document.getElementById('password').addEventListener('input', function () {
+    const val = this.value;
+    const bar = document.getElementById('strengthBar');
+    const lbl = document.getElementById('strengthLabel');
+    let score = 0;
+    if (val.length >= 6)  score++;
+    if (val.length >= 10) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    const colors = ['#e84545','#f97316','#eab308','#2bc48a','#16a34a'];
+    const labels = ['Çox zəif','Zəif','Orta','Güclü','Çox güclü'];
+    bar.style.width = (score * 20) + '%';
+    bar.style.background = colors[score - 1] || '#eee';
+    lbl.textContent = score ? labels[score - 1] : '';
+  });
+
+  document.getElementById('registerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name      = document.getElementById('name').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const password  = document.getElementById('password').value;
+    const password2 = document.getElementById('password2').value;
+    const alertBox  = document.getElementById('alertBox');
+
+    const showError = msg => {
+      alertBox.textContent = msg;
+      alertBox.className = 'alert-auth alert-error';
+      alertBox.style.display = 'block';
+    };
+
+    if (!name || !email || !password || !password2) return showError('Bütün sahələri doldurun.');
+    if (password.length < 6) return showError('Şifrə ən az 6 simvol olmalıdır.');
+    if (password !== password2) return showError('Şifrələr uyğun gəlmir.');
+
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRx.test(email)) return showError('Düzgün e-poçt ünvanı daxil edin.');
+
+    const result = Auth.register(name, email, password);
+    if (result.ok) {
+      alertBox.textContent = 'Qeydiyyat uğurla tamamlandı! Yönləndirilirsiniz...';
+      alertBox.className = 'alert-auth alert-success';
+      alertBox.style.display = 'block';
+      setTimeout(() => { window.location.href = 'profile.html'; }, 900);
+    } else {
+      showError(result.msg);
+    }
+  });
+</script>
+</body>
+</html>
+

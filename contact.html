@@ -1,166 +1,184 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="az">
 <head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>Əlaqə</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">	
-<!-- bootstrap css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!-- style css -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- Responsive-->
-<link rel="stylesheet" href="css/responsive.css">
-<!-- fevicon -->
-<link rel="icon" href="images/fevicon.png" type="image/gif" />
-<!-- Scrollbar Custom CSS -->
-<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-<!-- Tweaks for older IEs-->
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Əlaqə – Tatu Salon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
 <body>
-	<!-- header section start -->
-	<div class="header_section">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px"></a></div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">HAQQIMIZDA</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html">XİDMƏTLƏR</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="gallery.html">QALEREYA</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="contact.html">ƏLAQƏ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">GİRİŞ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">QEYDİYYAT</a>
-                </li>
-              </ul>
+
+<!-- Navbar -->
+<div class="header_section">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo"><a href="index.html"><img src="images/logo.jpg" height="50px" width="50px" alt="Logo"></a></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ƏSAS SƏHİFƏ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">HAQQIMIZDA</a></li>
+        <li class="nav-item"><a class="nav-link" href="service.html">XİDMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="price.html">QİYMƏTLƏR</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">QALEREYA</a></li>
+        <li class="nav-item active"><a class="nav-link" href="contact.html">ƏLAQƏ</a></li>
+      </ul>
+        <ul class="auth-nav-items navbar-nav" style="margin-left:auto !important;"></ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Contact -->
+<div class="contact_section layout_padding padding_top_0" style="margin-top:40px;">
+  <div class="container">
+    <h2 class="section-title" style="text-align:left; margin-bottom:30px;">Bizimlə <span>Əlaqə</span></h2>
+    <div class="row">
+      <!-- Form -->
+      <div class="col-md-7">
+        <div class="email_box">
+          <div id="contactAlert" class="alert-auth" style="display:none;"></div>
+          <div class="input_main">
+            <div style="padding:0 15px;">
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <input type="text" id="cName" class="email-bt" placeholder="Adınız" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="cEmail" class="email-bt" placeholder="E-poçt ünvanınız" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="cPhone" class="email-bt" placeholder="Əlaqə nömrəsi">
+                </div>
+                <div class="form-group">
+                  <select id="cSubject" class="email-bt" style="padding-top:14px; cursor:pointer;">
+                    <option value="">Mövzu seçin...</option>
+                    <option>Döymə haqqında məlumat</option>
+                    <option>Pirsinq haqqında məlumat</option>
+                    <option>Qiymət soruşmaq</option>
+                    <option>Görüş təyin etmək</option>
+                    <option>Digər</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <textarea id="cMessage" class="massage-bt" placeholder="Müraciətiniz..." rows="5" style="height:130px;"></textarea>
+                </div>
+              </form>
             </div>
-        </nav>
-	</div>
-	<!-- header section end -->
-  <!-- contact section start -->
-  <div class="contact_section layout_padding padding_top_0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="email_box">
-                    <div class="input_main">
-                       <div class="container">
-                          <form action="/action_page.php">
-                            <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Ad" name="Name">
-                            </div>
-                            <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="E-poçt" name="Name">
-                            </div>
-                            <div class="form-group">
-                              <input type="" class="email-bt" placeholder="Əlaqə nömrəsi" name="Email">
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea class="massage-bt" placeholder="Müraciət" rows="5" id="comment" name="Massage"></textarea>
-                            </div>
-                          </form>   
-                       </div> 
-                        <div class="main_bt"><a href="#">GÖNDƏR</a></div>                  
-                    </div>
-                 </div>
-        </div>
-        <div class="col-md-6">
-          <div class="image_6"><img src="images/logo.jpg"></div>
+            <div class="main_bt" onclick="submitContact()"><a href="#">GÖNDƏR</a></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- contact section end -->
-  <!-- footer section start -->
-  <div class="section_footer ">
-      <div class="container"> 
-        <div class="footer_section_2">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
-              <h2 class="account_text">Haqqımızda</h2>
-              <p class="ipsum_text_2">
-                <li><a href="#">Bu linkə keçid edin</a></li>
-              </p>
+
+      <!-- Info -->
+      <div class="col-md-5" style="padding-top:30px;">
+        <div style="background:#1e242c; border-radius:16px; padding:32px; color:#fff; height:100%;">
+          <h3 style="font-size:20px; font-weight:700; color:#fff; margin-bottom:24px;">Əlaqə Məlumatları</h3>
+          <div style="margin-bottom:20px; display:flex; gap:14px; align-items:flex-start;">
+            <div style="width:40px;height:40px;background:#4f99e5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa fa-map-marker" style="color:#fff;font-size:18px;"></i>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <h2 class="account_text">Bizimlə əlaqə</h2>
-              <div class="useful_link">
-                <ul>
-                  <li><a href="#">Bizimlə belə əlaqə saxlaya bilərsiniz</a></li>
-                </ul>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Ünvan</div>
+              <div style="color:rgba(255,255,255,.65); font-size:14px;">Bakı, Neftçilər pr. 12, mərtəbə 2</div>
+            </div>
+          </div>
+          <div style="margin-bottom:20px; display:flex; gap:14px; align-items:flex-start;">
+            <div style="width:40px;height:40px;background:#4f99e5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa fa-phone" style="color:#fff;font-size:18px;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">Telefon</div>
+              <div style="color:rgba(255,255,255,.65); font-size:14px;">+994 55 000 00 00</div>
+            </div>
+          </div>
+          <div style="margin-bottom:20px; display:flex; gap:14px; align-items:flex-start;">
+            <div style="width:40px;height:40px;background:#4f99e5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa fa-envelope" style="color:#fff;font-size:18px;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">E-poçt</div>
+              <div style="color:rgba(255,255,255,.65); font-size:14px;">info@tatusalon.az</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:14px; align-items:flex-start;">
+            <div style="width:40px;height:40px;background:#4f99e5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa fa-clock-o" style="color:#fff;font-size:18px;"></i>
+            </div>
+            <div>
+              <div style="font-weight:600; margin-bottom:4px;">İş saatları</div>
+              <div style="color:rgba(255,255,255,.65); font-size:14px;">
+                Bazar ertəsi – Cümə: 10:00–20:00<br>
+                Şənbə: 11:00–18:00<br>
+                Bazar: Qapalı
               </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3">
-              <h2 class="account_text">Məktub göndərin</h2>
-              <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-              <button class="subscribr_bt">GÖNDƏR</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="social_icon">
-        <ul>
-          <li><a href="#"><img src="images/fb-icon.png"></a></li>
-          <li><a href="#"><img src="images/twitter-icon.png"></a></li>
-          <li><a href="#"><img src="images/linkdin-icon.png"></a></li>
-          <li><a href="#"><img src="images/instagram-icon.png"></a></li>
-        </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="section_footer" style="margin-top:60px;">
+  <div class="container">
+    <div class="footer_section_2">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-3 useful_link">
+          <h2 class="account_text">Haqqımızda</h2>
+          <p class="ipsum_text_2"><li><a href="about.html">Haqqımızda səhifəsi</a></li></p>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Bizimlə əlaqə</h2>
+          <div class="useful_link"><ul><li><a href="contact.html">Əlaqə formu</a></li></ul></div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <h2 class="account_text">Məktub göndərin</h2>
+          <input type="email" class="email_text" placeholder="E-poçtunuz">
+          <button class="subscribr_bt">GÖNDƏR</button>
+        </div>
       </div>
     </div>
   </div>
-  <!-- footer section end -->
-  
-  <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript --> 
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-    $(document).ready(function(){
-    $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-        });
-    </script>
+  <div class="social_icon">
+    <ul>
+      <li><a href="#"><img src="images/fb-icon.png" alt="Facebook"></a></li>
+      <li><a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a></li>
+      <li><a href="#"><img src="images/linkdin-icon.png" alt="LinkedIn"></a></li>
+      <li><a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a></li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  function submitContact() {
+    const name    = document.getElementById('cName').value.trim();
+    const email   = document.getElementById('cEmail').value.trim();
+    const message = document.getElementById('cMessage').value.trim();
+    const alertEl = document.getElementById('contactAlert');
+
+    if (!name || !email) {
+      alertEl.textContent = 'Ad və e-poçt sahələri mütləqdir.';
+      alertEl.className = 'alert-auth alert-error';
+      alertEl.style.display = 'block';
+      return;
+    }
+    alertEl.textContent = 'Müraciətiniz göndərildi! Tezliklə sizinlə əlaqə saxlayacağıq.';
+    alertEl.className = 'alert-auth alert-success';
+    alertEl.style.display = 'block';
+    document.getElementById('contactForm').reset();
+    setTimeout(() => { alertEl.style.display = 'none'; }, 5000);
+  }
+</script>
 </body>
 </html>
+
